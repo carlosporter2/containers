@@ -6,7 +6,7 @@
 
 cd /opt/uaa
 
-mkdir -p /opt/uaa/uaa/build/reports/tests
+mkdir -p /opt/uaa/uaa/build/reports/tests && touch /opt/uaa/uaa/build/reports/tests/uaa-server.log
 
 ./gradlew -Dspring.profiles.active=default,hsqldb run  &> /var/log/gradlew_run.log   &
 
