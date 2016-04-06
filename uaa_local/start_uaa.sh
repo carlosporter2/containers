@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # Configuration in this file is overridden by an external file
 # if any of these exist:
@@ -6,4 +6,8 @@
 
 cd /opt/uaa
 
-./gradlew -Dspring.profiles.active=default,hsqldb run
+mkdir -p /opt/uaa/uaa/build/reports/tests
+
+./gradlew -Dspring.profiles.active=default,hsqldb run  &> /var/log/gradlew_run.log   &
+
+tail -n 1 -f /var/log/gradlew_run.log /opt/uaa/uaa/build/reports/tests/uaa-server.log
