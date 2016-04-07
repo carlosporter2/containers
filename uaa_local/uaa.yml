@@ -41,3 +41,21 @@ oauth:
       authorized-grant-types: authorization_code
       scope: cloud_controller.read,cloud_controller.write,scim.write,scim.read,openid,uaa.resource
       authorities: uaa.none
+    authorization_client:
+      id: authorization_client
+      secret: changeme
+      authorized-grant-types: authorization_code
+      scope: cloud_controller.read,cloud_controller.write,scim.write,scim.read,openid,uaa.resource
+      authorities: uaa.none      
+    password_client:
+      id: password_client
+      secret: changeme
+      authorized-grant-types: password
+      scope: cloud_controller.read,cloud_controller.write,scim.write,scim.read,openid,uaa.resource
+      authorities: uaa.none
+    credentials_client:
+      id: credentials_client
+      secret: changeme
+      authorized-grant-types: client_credentials
+      scope: cloud_controller.read,cloud_controller.write,scim.write,scim.read,openid,uaa.resource
+      authorities: uaa.none
