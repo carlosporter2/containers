@@ -27,8 +27,7 @@ docker rm uaa_local
 
 6. Create a new container from the image recently built ( the initial run may take 5 to 10 minutes ).
 
-cd ..
+cd .. 
 
 docker run --name uaa_local -p 8080:8080 -v $( pwd )/uaa_local:/uaa -it uaa_local
-
 

@@ -8,6 +8,6 @@ cd /opt/uaa
 
 mkdir -p /opt/uaa/uaa/build/reports/tests && touch /opt/uaa/uaa/build/reports/tests/uaa-server.log
 
-./gradlew -Dspring.profiles.active=default,hsqldb run  &> /var/log/gradlew_run.log   &
+./gradlew --stacktrace --info -Dspring.profiles.active=default,hsqldb run  &> /var/log/gradlew_run.log   &
 
 tail -n 1 -f /var/log/gradlew_run.log /opt/uaa/uaa/build/reports/tests/uaa-server.log
