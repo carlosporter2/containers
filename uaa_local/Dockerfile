@@ -1,4 +1,4 @@
-FROM java:openjdk-8u72-jdk
+FROM java:jdk
 MAINTAINER carlosporter@gorillalogic.com
 
 WORKDIR /
@@ -17,10 +17,11 @@ RUN chmod +x /start_uaa.sh
 RUN apt-get install screen nano vim git -y
 
 WORKDIR /opt
-RUN git clone https://github.com/cloudfoundry/uaa.git
+RUN git clone -b releases/3.2.1  https://github.com/cloudfoundry/uaa.git
 
 #VOLUME ["/uaa"]
 
 EXPOSE 8080
 
 ENTRYPOINT /start_uaa.sh
+
