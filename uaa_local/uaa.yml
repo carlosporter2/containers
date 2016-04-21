@@ -7,8 +7,7 @@ uaa:
 scim:
   username_pattern: '[a-z0-9+\-_.@]+'
   users:
-    - marissa|koala|carlosporter@lapaverde.net|Marissa|LastName|openid,uaa.resource
-    - carlos|porter|carlosporter@lapaverde.net|Carlos|Porter|openid,uaa.resource
+    - marissa|koala|marissa@test.org|Marissa|LastName|openid,uaa.resource
     - paul|wombat|paul@test.org|Paul|Smith|openid,uaa.user,uaa.resource
     - stefan|wallaby|stefan@test.org|Stefan|Schmidt|openid,uaa.user,uaa.resource
 
@@ -57,5 +56,11 @@ oauth:
       id: credentials_client
       secret: changeme
       authorized-grant-types: client_credentials
+      scope: cloud_controller.read,cloud_controller.write,scim.write,scim.read,openid,uaa.resource
+      authorities: openid
+    universal_client:
+      id: universal_client
+      secret: changeme
+      authorized-grant-types: client_credentials,authorization_code,password
       scope: cloud_controller.read,cloud_controller.write,scim.write,scim.read,openid,uaa.resource
       authorities: uaa.none
