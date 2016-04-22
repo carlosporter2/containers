@@ -1,27 +1,25 @@
 FROM java:jdk
-MAINTAINER carlosporter@gorillalogic.com
 
 WORKDIR /
 
-# Update the repository sources list
 RUN apt-get update
 
-ENV UAA_CONFIG_PATH /uaa
-ENV CLOUD_FOUNDRY_CONFIG_PATH /uaa
+ENV UAA_CONFIG_PATH /uaa_config
+ENV CLOUD_FOUNDRY_CONFIG_PATH /uaa_config
 
-RUN mkdir /uaa
+RUN mkdir /uaa_config
 
-ADD start_uaa.sh /start_uaa.sh
-ADD uaa.yml /uaa/uaa.yml
-RUN chmod +x /start_uaa.sh
+ADD start_uaa.sh /uaa_config/start_uaa.sh
+ADD uaa.yml /uaa_config/uaa.yml
+RUN chmod +x /uaa_config/start_uaa.sh
+
 RUN apt-get install screen nano vim git libssl-dev libapr1-dev libtcnative-1 -y
 
 WORKDIR /opt
-RUN git clone -b releases/3.2.1  https://github.com/cloudfoundry/uaa.git
-
-#VOLUME ["/uaa"]
+RUN git clone -b releases/3.2.0  https://github.com/cloudfoundry/uaa.git
 
 EXPOSE 8080
 
-ENTRYPOINT /start_uaa.sh
+ENTRYPOINT /uaa_config/start_uaa.sh
+
 

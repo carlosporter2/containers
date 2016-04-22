@@ -1,13 +1,11 @@
 GUIDE TO SETUP A NEW UAA CONTAINER
-----------------------------------
-
 
 1. Go to Kitematic and open the Docker CLI to build the new container.
 
 
 2. Clone the repository with the Dockerfile to setup the new container.
 
-git clone https://carlosporter@bitbucket.org/gorillalogicarenal/containers.git
+git clone https://github.com/carlosporter/containers.git
 
 
 3. Go to the directory uaa_local within the container repository
@@ -29,5 +27,5 @@ docker rm uaa_local
 
 cd .. 
 
-docker run --name uaa_local -p 8080:8080 -v $( pwd )/uaa_local:/uaa -it uaa_local
+docker run --name uaa_local -p 8080:8080 -it uaa_local
 
